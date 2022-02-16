@@ -1,8 +1,6 @@
-import './App.css';
-
-function App() {
+function Header() {
   return (
-    <div className="App">
+    <div className="Header">
       
       
       <header />
@@ -14,4 +12,4 @@ function App() {
   );
 }
 
-export default App;
+export default Header;
