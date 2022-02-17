@@ -1,13 +1,15 @@
 import './App.css';
+import Carrousel from './components/carrousel';
 
-function App() {
+
+const App = () => {
   return (
     <div className="App">
       
+
+      <Carrousel />
       
-      <header />
-      <main />
-      <footer />
+     
 
 
     </div>
