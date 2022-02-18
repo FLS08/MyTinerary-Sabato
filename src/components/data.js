@@ -17,10 +17,36 @@ export const data = [
         img: "maldivas.jpg",  
 
     },
+    {
+        city: "Nürnberg",
+        country: "Germany",
+        img: "maldivas.jpg",  
+
+    },
+    
+    {
+        city: "Paris",
+        country: "France",
+        img: "maldivas.jpg",  
+
+    },
+    
+    {
+        city: "Punta Cana",
+        country: "Dominican Republic",
+        img: "maldivas.jpg",  
+
+    },
+    
+    {
+        city: "Riviera Maya",
+        country: "Mexico",
+        img: "maldivas.jpg",  
+
+    },
     
 
-
-
+    
 
 
 ]
