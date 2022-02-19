@@ -1,48 +1,76 @@
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
-import { data } from "./data";
+import React from "react"; 
+import { Swiper, SwiperSlide } from "swiper/react";  
+import "swiper/css"; 
+import "swiper/css/pagination"; 
+import {data} from './data'  
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { Button, CardActionArea, CardActions } from '@mui/material';
+import "swiper/css/grid"
+// import required modules 
+import { Pagination, Autoplay, Grid } from "swiper";   
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
 
-import "../styles/Carrousel.css";
-
-// import required modules
-import { Autoplay, Pagination, Navigation } from "swiper";
-
-console.log(data);
-export default function Carrousel() {
-
+export default function Carrousel() {   
   
-  return (
-    
-    
-    <>
-
-      
-    
-      <Swiper
-        spaceBetween={30}
-        centeredSlides={true}
-        autoplay={{
-          delay: 2000,
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper"
-      >
-        {data.map(img =>
-        <SwiperSlide>
-          <img src={process.env.PUBLIC_URL + `./images/${img.img}`} />
-        </SwiperSlide>
-         )}
-      </Swiper>
-    </>
-  );
-}
+  return (     
+    <div className="gallery">       
+    <Swiper         
+        slidesPerView={2}      
+        slidesPerGroup={4}         
+        spaceBetween={30}         
+        pagination={{           
+            clickable: true,         
+        }}         
+        modules={[Pagination, Autoplay, Grid]}         
+        autoplay={{delay: 2000, disableOnInteraction: false }}         
+        className="mySwiper"         
+        breakpoints={{           
+            "@0.00":{             
+                slidesPerView: 4,
+                spaceBetween: 10,           
+            },           
+            "@0.75":{             
+                slidesPerView: 4,             
+                spaceBetween: 10,           
+            },           
+            "@1.00":{             
+                slidesPerView: 4,             
+                spaceBetween: 10,
+            },
+            "@1.50":{             
+                slidesPerView: 4,             
+                spaceBetween: 10,           
+            }         
+        }}       
+        >          
+        {data.map(city =>           
+        <SwiperSlide>                          
+            <div>                
+            <Card className='card' sx={{ maxWidth: 345 }}>
+                <CardActionArea>
+                <CardMedia
+                    component="img"
+                    height="300"
+                    image={process.env.PUBLIC_URL+`/images/${city.img}` }
+                    alt="img"
+                />
+                <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                    {city.city}
+                    </Typography>
+                </CardContent>
+                </CardActionArea>
+                <CardActions>
+                       <Button size="small" className='cardButton'> Visit! </Button> 
+                </CardActions>
+            </Card>            
+            </div>          
+        </SwiperSlide>                  
+        )}       
+        </Swiper>     
+        </div>   
+        ); 
+    }
