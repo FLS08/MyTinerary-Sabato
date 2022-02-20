@@ -11,6 +11,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import Logo from './logo';
 
 const pages = ['Home', 'Cities'];
 const settings = ['Log In', 'Forgotten password?', 'Create New Account'];
@@ -38,14 +39,7 @@ const NavBar = () => {
     <AppBar position="fixed" className='NavBar'>
       <Container maxWidth="xl" >
         <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{mt:'20px', mr: 2, display: { xs: 'none', md: 'flex' } }}
-          >
-            My Tinerary
-          </Typography>
+          <Logo/>
 
           <Box sx={{ mt:'20px', flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -83,14 +77,7 @@ const NavBar = () => {
               ))}
             </Menu>
           </Box>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{mt:'20px', flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
-          >
-            My Tinerary
-          </Typography>
+          
           <Box sx={{mt:'20px', flexGrow: 1, justifyContent: 'flex-end', mr: 2, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
