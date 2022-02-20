@@ -8,7 +8,7 @@ function Hero() {
           style={{
             position: 'relative',  
             width: '100%',
-            height:'500px',
+            height:'90vh',
             objectFit: 'cover',
             objectPosition: '50%,50%',
             zIndex: '-1'

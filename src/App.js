@@ -3,6 +3,8 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import './App.css';
 import Home from './components/home';
 import NavBar from './components/nav';
+import Footer from './components/footer';
+import Cities from './components/cities';
 
 
 const App = () => {
@@ -14,15 +16,17 @@ const App = () => {
       <div className="App">
 
         
-      
+
         <NavBar />
 
         <Routes>
           <Route path="*" element={<Home/>}/>
+          <Route path="/home" element={<Home/>}/>
+          <Route path="/cities" element={<Cities/>}/>
     
         </Routes>
         
-        
+        <Footer />
 
       </div>
     </BrowserRouter>

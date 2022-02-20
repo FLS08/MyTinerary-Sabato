@@ -7,10 +7,10 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 
 const pages = ['Home', 'Cities'];
 const settings = ['Log In', 'Forgotten password?', 'Create New Account'];
@@ -106,7 +106,7 @@ const NavBar = () => {
           <Box sx={{mt:'20px', flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              <PersonOutlineIcon />
               </IconButton>
             </Tooltip>
             <Menu

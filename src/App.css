@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 *{  
     margin: 0;
     padding: 0;
@@ -11,10 +12,12 @@
     width: 100% !important;
     height: 120px !important;
     color: black !important;
+    
 }
 
 .NavBar button{
     color: black !important;
+    font-family: 'Montserrat', sans-serif !important;
 }
 
 /********************************/
@@ -51,3 +54,49 @@
 
 }
 
+/********************************/
+
+/*   ESTILOS APLICADOS AL CARROUSEL */
+
+.carrousel{
+    background-image: url(../public/images/hero3.jpg);
+    background-size: cover;
+    background-position: 50% 50%;
+    height: 500px;
+}
+
+.card{
+    margin-top: 5%;
+    height: 450px;
+    border-radius: 0.2em;
+    scale: (1);
+}
+
+.card:hover{
+    transform: scale(1.02);
+}
+
+/********************************/
+
+/*   ESTILOS APLICADOS AL FOOTER */
+
+.footer{
+    height: 400px;
+    background-color: black;
+}
+/********************************/
+
+/*   ESTILOS APLICADOS A CITIES */
+
+.cities{
+    background-image: url(../public/images/hero4.jpg);
+    background-size: cover;
+    height: 100vh;
+}
+
+.cities h2{
+    padding-top: 30%;
+    text-align: center;
+    color: rgb(255, 208, 0);
+    font-size: 3rem;
+}

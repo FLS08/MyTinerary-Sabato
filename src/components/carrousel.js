@@ -16,7 +16,7 @@ import { Pagination, Autoplay, Grid } from "swiper";
 export default function Carrousel() {   
   
   return (     
-    <div className="gallery">       
+    <div className="carrousel">       
     <Swiper         
         slidesPerView={2}      
         slidesPerGroup={4}         
@@ -25,8 +25,8 @@ export default function Carrousel() {
             clickable: true,         
         }}         
         modules={[Pagination, Autoplay, Grid]}         
-        autoplay={{delay: 2000, disableOnInteraction: false }}         
-        className="mySwiper"         
+        autoplay={{delay: 2800, disableOnInteraction: false }}         
+        className="swiper"         
         breakpoints={{           
             "@0.00":{             
                 slidesPerView: 4,
@@ -49,7 +49,7 @@ export default function Carrousel() {
         {data.map(city =>           
         <SwiperSlide>                          
             <div>                
-            <Card className='card' sx={{ maxWidth: 345 }}>
+            <Card className='card' sx={{ maxWidth: 345 ,ml:6,mr:4}}>
                 <CardActionArea>
                 <CardMedia
                     component="img"
