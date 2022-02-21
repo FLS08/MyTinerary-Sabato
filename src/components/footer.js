@@ -4,6 +4,7 @@ import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Footer.css'
 
 
+
 function Footer() {
   return (
     <div className="d-flex flex-column h-100">
@@ -13,7 +14,12 @@ function Footer() {
             <div className="row gy-4 gx-5">
                 <div className="col-lg-4 col-md-6">
                     <h5 className="h1 text-white">MT.</h5>
-                    <p className="small text-muted">MyTinerary.</p>
+                    <p className="small text-muted">MyTinerary. 7512 Dr Phillips Blvd, Orlando, FL 32819</p>
+                    <div>
+                      <img src={process.env.PUBLIC_URL+`/images/instagram.png` } alt="insta" className='iconFooter' />
+                      <img src={process.env.PUBLIC_URL+`/images/whatsapp.png` } alt="wsp" className='iconFooter' />
+                      <img src={process.env.PUBLIC_URL+`/images/facebook.png` } alt="face" className='iconFooter' />
+                    </div> 
                     <p className="small text-muted mb-0">&copy; Francisco Sabato - FS 26 - MindHub.</p>
                 </div>
                
