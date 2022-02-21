@@ -29,8 +29,9 @@ export default function Carrousel() {
         className="swiper"         
         breakpoints={{           
             "@0.00":{             
-                slidesPerView: 4,
-                spaceBetween: 10,           
+                slidesPerView: 2,
+                spaceBetween: 5,
+                          
             },           
             "@0.75":{             
                 slidesPerView: 4,             
@@ -47,7 +48,7 @@ export default function Carrousel() {
         }}       
         >          
         {data.map(city =>           
-        <SwiperSlide>                          
+        <SwiperSlide className='swiperS'>                          
             <div>                
             <Card className='card' sx={{ maxWidth: 345 ,ml:6,mr:4}}>
                 <CardActionArea>

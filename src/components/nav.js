@@ -7,13 +7,13 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import Logo from './logo';
+import {Link} from "react-router-dom"
 
-const pages = ['Home', 'Cities'];
+
 const settings = ['Log In', 'Forgotten password?', 'Create New Account'];
 
 const NavBar = () => {
@@ -70,24 +70,24 @@ const NavBar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+              <MenuItem>
+                <Link to="home" className='link'> Home </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link to="cities" className='link'>Cities</Link>
+              </MenuItem>
             </Menu>
           </Box>
           
           <Box sx={{mt:'20px', flexGrow: 1, justifyContent: 'flex-end', mr: 2, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'flex' }}
-              >
-                {page}
-              </Button>
-            ))}
+      
+            <MenuItem>
+              <Link to="home" className='link'> Home </Link>
+            </MenuItem>
+            <MenuItem>
+              <Link to="cities" className='link'>Cities</Link>
+            </MenuItem>
+            
           </Box>
 
           <Box sx={{mt:'20px', flexGrow: 0 }}>

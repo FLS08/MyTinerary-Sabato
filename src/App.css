@@ -24,9 +24,12 @@
     
 }
 
-.NavBar button{
-    color: black !important;
-    font-family: 'Montserrat', sans-serif !important;
+
+.link{
+    text-decoration: none;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+
 }
 
 /********************************/
@@ -51,7 +54,8 @@
 }
 
 .TextHero{
-    position: absolute;    
+    position: absolute;
+    font-family: 'Montserrat', sans-serif !important;    
 }
 
 
@@ -92,6 +96,7 @@
 .card{
     margin-top: 5%;
     height: 450px;
+    min-width: 150px;
     border-radius: 0.2em;
     scale: (1);
 }
@@ -99,6 +104,8 @@
 .card:hover{
     transform: scale(1.02);
 }
+
+
 
 /********************************/
 
@@ -113,16 +120,19 @@
 /*   ESTILOS APLICADOS A CITIES */
 
 .cities{
-    background-image: url(../public/images/hero4.jpg);
+    background-image: url(../public/images/hero1.jpg);
     background-size: cover;
-    height: 100vh;
+    min-height: 100vh;
+    width: 100%;
 }
 
 .cities h2{
-    padding-top: 30%;
+    width: 100%;
+    padding-top: 350px;
     text-align: center;
-    color: rgb(255, 208, 0);
+    color: rgb(0, 0, 0);
     font-size: 3rem;
+    font-family: 'Montserrat', sans-serif !important;
 }
 
 

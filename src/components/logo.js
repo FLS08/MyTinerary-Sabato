@@ -1,11 +1,13 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 
 function Logo() {
   return (
    <>
-        <img src={process.env.PUBLIC_URL+`/images/logo.gif` } alt="logo" id='Logo' />
-
+        <Link to="home">
+            <img src={process.env.PUBLIC_URL+`/images/logo.gif` } alt="logo" id='Logo' />
+        </Link>
     </>
   )
 }
