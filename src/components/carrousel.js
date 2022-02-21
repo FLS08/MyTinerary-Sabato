@@ -7,7 +7,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
+import { CardActionArea, CardActions } from '@mui/material';
 import "swiper/css/grid"
 // import required modules 
 import { Pagination, Autoplay, Grid } from "swiper";   
@@ -16,7 +16,8 @@ import { Pagination, Autoplay, Grid } from "swiper";
 export default function Carrousel() {   
   
   return (     
-    <div className="carrousel">       
+    <div className="carrousel">
+    <h2>Popular MyTineraries</h2>       
     <Swiper         
         slidesPerView={2}      
         slidesPerGroup={4}         
@@ -29,13 +30,17 @@ export default function Carrousel() {
         className="swiper"         
         breakpoints={{           
             "@0.00":{             
-                slidesPerView: 2,
+                slidesPerView: 1,
                 spaceBetween: 5,
                           
+            },
+            "@0.50":{             
+                slidesPerView: 2,             
+                spaceBetween: 5,           
             },           
             "@0.75":{             
-                slidesPerView: 4,             
-                spaceBetween: 10,           
+                slidesPerView: 3,             
+                spaceBetween: 5,           
             },           
             "@1.00":{             
                 slidesPerView: 4,             
@@ -50,7 +55,7 @@ export default function Carrousel() {
         {data.map(city =>           
         <SwiperSlide className='swiperS'>                          
             <div>                
-            <Card className='card' sx={{ maxWidth: 345 ,ml:6,mr:4}}>
+            <Card className='cards' sx={{ maxWidth: 345 ,ml:6,mr:4}}>
                 <CardActionArea>
                 <CardMedia
                     component="img"
@@ -59,13 +64,13 @@ export default function Carrousel() {
                     alt="img"
                 />
                 <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
+                    <Typography gutterBottom variant="h6" width={'100%'} component="div">
                     {city.city}
                     </Typography>
                 </CardContent>
                 </CardActionArea>
                 <CardActions>
-                       <Button size="small" className='cardButton'> Visit! </Button> 
+                    <button className='cardsButton'> Visit!</button>
                 </CardActions>
             </Card>            
             </div>          

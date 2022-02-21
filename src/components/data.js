@@ -6,7 +6,7 @@ export const data = [
 
     },
     {   id: 2,
-        city: "Rio de Janeiro",
+        city: "Rio",
         country: "Brazil",
         img: "rio.jpg",  
 
@@ -39,7 +39,7 @@ export const data = [
     },
     
     {   id: 7,
-        city: "Riviera Maya",
+        city: "Tulum",
         country: "Mexico",
         img: "riviera.jpg",  
 
