@@ -40,7 +40,7 @@ function Footer() {
                   
                     <form action="#">
                         <div className="input-group mb-3">
-                            <input className="form-control" type="text" placeholder="jonedoe@mail.com" aria-label="Recipient's username" aria-describedby="button-addon2"/>
+                            <input className="form-control" type="text" placeholder="johndoe@mail.com" aria-label="Recipient's username" aria-describedby="button-addon2"/>
                             <button className="btn btn-primary" id="button-addon2" type="button"><i className="fas fa-paper-plane"></i>Suscribe</button>
                         </div>
                     </form>
