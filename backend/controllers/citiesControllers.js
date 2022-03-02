@@ -37,10 +37,10 @@ deleteCities: async (req, res)=>{
 },
 modifiCities: async (req, res)=>{
     const id = req.params.id
-    const ciudad = req.body.dataInput
+    const city = req.body.dataInput
 
-    let ciudadb = await Cities.findOneAndUpdate({_id:id}, ciudad)
-    console.log(ciudadb)
+    let citiesdb = await Cities.findOneAndUpdate({_id:id}, city)
+    console.log(citiesdb)
 }
 }
 module.exports = citiesControllers

@@ -5,6 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea, CardActions } from '@mui/material';
+import NotFound from './notFound';
 
 
 
@@ -41,7 +42,7 @@ function Cities() {
   }
 
   const filt = (searched) => {
-    var filtrado = data.filter((elem =>{
+    var filtrado = data.filter((elem => {
       if((elem.city.toString().toLowerCase().startsWith(searched.toLowerCase().trim()) || elem.country.toString().toLowerCase().startsWith(searched.toLowerCase().trim())))
       {
         return elem
@@ -50,6 +51,7 @@ function Cities() {
     }
     
     ));
+    
     setLoad(filtrado)
     
   }
@@ -68,7 +70,7 @@ function Cities() {
           placeholder='Search any City or Country.. '
         />
         
-        {load?.map(city =>           
+        {load.length === 0 ? (<NotFound/>) : load?.map(city =>           
                                   
               <div>                
               <Card className='cards' sx={{ maxWidth: 345 ,ml:6,mr:4}}>
