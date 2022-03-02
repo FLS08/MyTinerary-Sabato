@@ -149,17 +149,31 @@
     min-height: 100vh;
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
 .cities h2{
     width: 80%;
-    padding-top: 700px;
+    padding-top: 200px;
     text-align: center;
     color: rgb(0, 162, 255);
     font-size: 2rem;
     font-family: 'Montserrat', sans-serif !important;
     font-weight: 100;
+}
+
+.containerInput{
+    position: relative;
+    
+}
+
+.inputSearch{
+    top: 10%;
+    margin: 10px 5%;
+    color: white !important;
+    max-height: 30px;
+    
 }
 
 

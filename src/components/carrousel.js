@@ -18,7 +18,7 @@ export default function Carrousel() {
   return (     
     <div className="carrousel">
     <h2>Popular MyTineraries</h2>       
-    <Swiper         
+    <Swiper       
         slidesPerView={2}      
         slidesPerGroup={4}         
         spaceBetween={30}         
@@ -31,7 +31,7 @@ export default function Carrousel() {
         breakpoints={{           
             "@0.00":{             
                 slidesPerView: 1,
-                spaceBetween: 5,
+                spaceBetween: 10,
                           
             },
             "@0.50":{             
