@@ -6,6 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea, CardActions } from '@mui/material';
 import NotFound from './notFound';
+import {Link} from 'react-router-dom'
 
 
 
@@ -90,9 +91,11 @@ function Cities() {
                       </Typography>
                   </CardContent>
                   </CardActionArea>
-                  <CardActions>
-                      <button className='cardsButton'> Visit!</button>
-                  </CardActions>
+                  <Link to={`details/${city._id}`}>
+                    <CardActions>
+                        <button className='cardsButton'> Visit!</button>
+                    </CardActions>
+                  </Link>
               </Card>            
               </div>                          
           )} 
