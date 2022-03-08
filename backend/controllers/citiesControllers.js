@@ -1,46 +1,46 @@
-const Cities = require('../models/cities')
+const Cities = require("../models/cities");
 
 const citiesControllers = {
-
-getCities: async (req,res)=>{
-let cities
-let error = null
-try{
-
- cities = await Cities.find()
-
-}catch(err){
-    error = err
-    console.log(error)
-}
-res.json({
-    response: error ? 'ERROR' : {cities}, 
-    success: error ? false : true,
-    error: error
-})
-},
-loadCities: async(req, res)=>{
-    console.log(req.body)
-    const {city, country, description}= req.body.dataInput
+  getCities: async (req, res) => {
+    let cities;
+    let error = null;
+    try {
+      cities = await Cities.find();
+    } catch (err) {
+      error = err;
+      console.log(error);
+    }
+    res.json({
+      response: error ? "ERROR" : { cities },
+      success: error ? false : true,
+      error: error,
+    });
+  },
+  loadCities: async (req, res) => {
+    console.log(req.body);
+    const { city, country, description } = req.body;
     new Cities({
-        city: city,
-        country:country,
-        description: description,
-    }).save()
-    .then((response)=> res.json({response}))
-},
+      city,
+      country,
+      description,
+    })
+      .save()
+      .then((response) => res.json({ response:response, success:true }));
+  },
 
-deleteCities: async (req, res)=>{
-    const id = req.params.id
+  deleteCities: async (req, res) => {
+    const id = req.params.id;
     console.log(req.params);
-    await Cities.findOneAndDelete({_id:id})
-},
-modifiCities: async (req, res)=>{
-    const id = req.params.id
-    const city = req.body.dataInput
-
-    let citiesdb = await Cities.findOneAndUpdate({_id:id}, city)
-    console.log(citiesdb)
-}
-}
-module.exports = citiesControllers
+    await Cities.findOneAndDelete({ _id: id });
+  },
+  modifiCities: async (req, res) => {
+    const id = req.params.id;
+    const city = req.body;
+    let citiesdb;
+    try{citiesdb = await Cities.findOneAndUpdate({ _id: id }, city,{new: true});
+    }catch(err){
+        console.log(err)
+    }res.json({success:true, response:citiesdb})
+  },
+};
+module.exports = citiesControllers;

@@ -12,6 +12,7 @@ import {Link} from 'react-router-dom'
 
 
 
+
 function Cities() {
 
    
@@ -91,7 +92,7 @@ function Cities() {
                       </Typography>
                   </CardContent>
                   </CardActionArea>
-                  <Link to={`details/${city._id}`}>
+                  <Link to={`/details/${city._id}`}>
                     <CardActions>
                         <button className='cardsButton'> Visit!</button>
                     </CardActions>
