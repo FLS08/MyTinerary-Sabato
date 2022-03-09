@@ -7,38 +7,46 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea, CardActions } from '@mui/material';
 import NotFound from './notFound';
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
+import citiesAction from '../redux/action/citiesAction';
 
 
 
 
 
 
-function Cities() {
+function Cities(props) {
 
+   const [cities,setCities] = useState()
+   const [search,setSearch] = useState()
+ 
    
-  const [data, setData ]= useState([])
-  const [search, setSearch]= useState("") 
-  const [load, setLoad]= useState([]) 
 
-  const getApi = async () =>{
-    await axios.get(`http://localhost:4000/api/cities`)
-    .then(response=>{setData(response.data.response.cities);
-        setLoad(response.data.response.cities)
-        console.log(response.data.response.cities);
-    }).catch(error=>{console.log(error);})
-}
+ 
 
   useEffect(()=>{   
 
-    getApi();
+    props.fetchCities();
                            
   } ,[])
+  
+ /*  useEffect(() => {
+    if(search === ""){
+
+      setCities(props.cities)
+
+    }else{
+      setCities(props.filterCities)
+    }
+  
+  }, [search]) */
+  
 
 
 
 
 
-  const handleChange = event =>{
+  /* const handleChange = event =>{
     setSearch(event.target.value);
     filt(event.target.value);
   }
@@ -56,7 +64,7 @@ function Cities() {
     
     setLoad(filtrado)
     
-  }
+  } */
 
 
   return (
@@ -67,12 +75,12 @@ function Cities() {
         
         <input 
           className='form-control inputSearch'
-          value={search}
-          onChange={handleChange}
+          /* value={search}
+          onChange={handleChange} */
           placeholder='Search any City or Country.. '
         />
         
-        {load.length === 0 ? (<NotFound/>) : load?.map(city =>           
+        {props.cities.length === 0 ? (<NotFound/>) : props.cities?.map(city =>           
                                   
               <div>                
               <Card className='cards' sx={{ maxWidth: 345 ,ml:6,mr:4}}>
@@ -108,4 +116,18 @@ function Cities() {
   )
 }
 
-export default Cities
+const mapDispatchToProps = {
+  fetchCities:citiesAction.fetchCities,
+  filterCities:citiesAction.filterCities
+ 
+}
+const mapStateToProps = (state) => {
+  return {
+    cities: state.City.cities,
+    filterCities: state.City.filterCities
+    
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Cities)
+

@@ -2,7 +2,9 @@
 const initialState = {
 
     cities:[],
-    aux:[]
+    city:[],
+    aux:[],
+    filtCities:[]
 }
 
 const citiesReducer = (state= initialState, action)=>{
@@ -34,16 +36,14 @@ const citiesReducer = (state= initialState, action)=>{
     
                 return{
                     ...state,
-                    cities: filtered
+                    filtCities: filtered
                 }
             case 'fetchOne':
                 return{
                     ...state,
-                    cities: action.payload
+                    city: action.payload
 
                 }
-        
-    
         default:
             return state
     }

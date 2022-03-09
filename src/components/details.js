@@ -6,7 +6,8 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import citiesAction from '../redux/action/citiesAction';
-import {connect} from 'react-redux'
+import {connect, useSelector} from 'react-redux'
+
 
 
 
@@ -15,22 +16,25 @@ import {connect} from 'react-redux'
 
 function Details(props) {
 
+    
     let {id} = useParams()
-    
-    const [data,setData]= useState({element: props.cities.find(city => city._id.toString() === id)})
+    console.log(id)
 
-    useEffect(()=>{
-        if(props.cities.length < 1){
-            props.fetchOneCity(id)
-            .then(city => setData({element: city}))
-        }
-    }, [])
+    /* const [data,setData]= useState(false) */
+    const data = useSelector(store => store.City.city)
 
-    if (!data.element){
-        return <h3>Anda Bien</h3>
-    }
-    
+    /* const data = props.city */
     console.log(data)
+
+    useEffect(()=>{   
+
+        props.fetchOneCity(id)
+                               
+    } ,[])
+
+
+    
+    
 
   return (
 
@@ -39,24 +43,24 @@ function Details(props) {
                 
             
             <div>                
-                <Card className='cards' sx={{ maxWidth: 768 ,ml:4,mr:4}}>
+                  {data && <Card className='cards' sx={{ maxWidth: 768 ,ml:4,mr:4}}>
                     <CardActionArea>
                         <CardMedia
                             component="img"
                             height="300"
-                            image={process.env.PUBLIC_URL+`/images/${data.element.img}` }
+                            image={process.env.PUBLIC_URL+`/images/${data.img}` }
                             alt="img"/>
                         <CardContent>
                             <Typography gutterBottom variant="h6" width={'100%'} component="div">
-                                {data.element.city}
+                                {data.city}
                             </Typography>
                             <Typography gutterBottom variant="p" width={'100%'} component="div">
-                                {data.element.country}
+                                {data.country}
                             </Typography>
                         </CardContent>
                     </CardActionArea>
                                      
-                </Card>            
+                </Card>}           
             </div>                          
          }
       </div>
@@ -66,7 +70,6 @@ function Details(props) {
 }
 
 const mapDispatchToProps = {
-    fetchCities: citiesAction.fetchCities,
     fetchOneCity: citiesAction.fetchOneCity
 }
 
@@ -76,7 +79,9 @@ const mapStateToProps = (state) => {
     
     return {
         cities: state.City.cities,
-        aux: state.City.aux
+        aux: state.City.aux,
+        city: state.City.city
+    
     }
 }
 

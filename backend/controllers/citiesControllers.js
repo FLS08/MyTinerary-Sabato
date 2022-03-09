@@ -42,5 +42,23 @@ const citiesControllers = {
         console.log(err)
     }res.json({success:true, response:citiesdb})
   },
+  getOneCity: async (req, res) => {
+    console.log("Hola")
+    let cities;
+    let error = null;
+    try {
+      cities = await Cities.findOne({_id:req.params.id});
+    } catch (err) {
+      error = err;
+      console.log(error);
+    }
+    res.json({
+      response: error ? "ERROR" :  cities ,
+      success: error ? false : true,
+      error: error,
+    });
+  }
+
+    
 };
 module.exports = citiesControllers;
