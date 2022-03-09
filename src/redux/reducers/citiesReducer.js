@@ -14,7 +14,8 @@ const citiesReducer = (state= initialState, action)=>{
             return {
                 ...state,
                 cities: action.payload,
-                aux: action.payload
+                aux: action.payload,
+                filtCities: action.payload
             }
             case 'deleteCity':
                 return {
@@ -32,11 +33,14 @@ const citiesReducer = (state= initialState, action)=>{
                 }
     
             case 'filt':
-                const filtered = action.payload.cities.filter((cities => cities.city.toLowerCase()))
+                console.log(action)
+                const filtered = action.payload.cities.filter((cities => cities.city.toLowerCase().startsWith(action.payload.value.toLowerCase().trim())))
+                
     
                 return{
                     ...state,
-                    filtCities: filtered
+                    filtCities: filtered,
+
                 }
             case 'fetchOne':
                 return{

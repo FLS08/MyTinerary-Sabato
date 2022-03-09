@@ -17,8 +17,7 @@ import citiesAction from '../redux/action/citiesAction';
 
 function Cities(props) {
 
-   const [cities,setCities] = useState()
-   const [search,setSearch] = useState()
+   
  
    
 
@@ -29,42 +28,18 @@ function Cities(props) {
     props.fetchCities();
                            
   } ,[])
-  
- /*  useEffect(() => {
-    if(search === ""){
 
-      setCities(props.cities)
+  const filteredCities = (event)=>{
 
-    }else{
-      setCities(props.filterCities)
-    }
-  
-  }, [search]) */
-  
-
-
-
-
-
-  /* const handleChange = event =>{
-    setSearch(event.target.value);
-    filt(event.target.value);
+    props.filterCities(props.cities,event.target.value)
+    
   }
+  
+  console.log(props)
 
-  const filt = (searched) => {
-    var filtrado = data.filter((elem => {
-      if((elem.city.toString().toLowerCase().startsWith(searched.toLowerCase().trim()) || elem.country.toString().toLowerCase().startsWith(searched.toLowerCase().trim())))
-      {
-        return elem
-      }
-      
-    }
-    
-    ));
-    
-    setLoad(filtrado)
-    
-  } */
+  
+ 
+  
 
 
   return (
@@ -75,12 +50,12 @@ function Cities(props) {
         
         <input 
           className='form-control inputSearch'
-          /* value={search}
-          onChange={handleChange} */
+          onChange={filteredCities} 
           placeholder='Search any City or Country.. '
         />
         
-        {props.cities.length === 0 ? (<NotFound/>) : props.cities?.map(city =>           
+        
+        {props.filtCities.length === 0 ? (<NotFound/>) : props.filtCities?.map(city =>           
                                   
               <div>                
               <Card className='cards' sx={{ maxWidth: 345 ,ml:6,mr:4}}>
@@ -123,8 +98,8 @@ const mapDispatchToProps = {
 }
 const mapStateToProps = (state) => {
   return {
-    cities: state.City.cities,
-    filterCities: state.City.filterCities
+    cities: state.citiesReducer.cities,
+    filtCities: state.citiesReducer.filtCities
     
   }
 }

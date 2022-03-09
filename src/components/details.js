@@ -21,7 +21,7 @@ function Details(props) {
     console.log(id)
 
     /* const [data,setData]= useState(false) */
-    const data = useSelector(store => store.City.city)
+    const data = useSelector(store => store.citiesReducer.city)
 
     /* const data = props.city */
     console.log(data)
@@ -78,9 +78,9 @@ const mapStateToProps = (state) => {
 
     
     return {
-        cities: state.City.cities,
-        aux: state.City.aux,
-        city: state.City.city
+        cities: state.citiesReducer.cities,
+        aux: state.citiesReducer.aux,
+        city: state.citiesReducer.city
     
     }
 }

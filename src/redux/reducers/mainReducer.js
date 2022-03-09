@@ -3,7 +3,7 @@ import citiesReducer from './citiesReducer'
 
 const mainReducer = combineReducers({
 
-    City: citiesReducer    
+    citiesReducer    
 
 
 })
