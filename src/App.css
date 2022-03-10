@@ -246,9 +246,22 @@ button {
    /* ESTILOS APLICADOS A DETAILS */
 
    .itinerariesArea{
+       margin: 20px 0;
        display: flex;
-       justify-content: space-around;
+       justify-content: space-evenly;
        align-items: center;
        flex-wrap: wrap;
        
+   }
+
+   .imgUser{
+       max-width: 220px;
+       object-fit: cover;
+   }
+
+   .detailsIMG{
+       margin-top: 30%;
+       display: flex;
+       justify-content: center;
+       align-items: center;
    }

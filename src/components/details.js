@@ -51,7 +51,7 @@ function Details(props) {
         {        
                 
             
-            <div>                   {/* data area */}
+            <div className='detailsIMG'>                   {/* data area */}
 
                                 
                   {data && <Card className='cards' sx={{ maxWidth: 768 ,ml:4,mr:4}}>

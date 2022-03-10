@@ -69,9 +69,10 @@ function ItineraryDetails(props) {
           subheader={itinerary.userName}
         />
         <CardMedia
+          className="imgUser"
           component="img"
           height="194"
-          image={process.env.PUBLIC_URL + `${itinerary.imgUser}`}
+          image={process.env.PUBLIC_URL + `/images/${itinerary.imgUser}`}
           alt={itinerary.userName}
         />
         <CardContent>
