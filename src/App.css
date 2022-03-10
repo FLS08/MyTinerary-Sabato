@@ -160,7 +160,8 @@
     font-size: 2rem;
     font-family: 'Montserrat', sans-serif !important;
     font-weight: 100;
-    text-shadow: black;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.72)
+    ;
 }
 
 .containerInput{
@@ -260,7 +261,7 @@ button {
    }
 
    .detailsIMG{
-       margin-top: 30%;
+       margin-top: 150px;
        display: flex;
        justify-content: center;
        align-items: center;

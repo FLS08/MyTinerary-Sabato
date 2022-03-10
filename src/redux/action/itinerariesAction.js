@@ -11,11 +11,11 @@ const itinerariesAction = {
     },
 
     fetchOneItinerary: (id) =>{
-        console.log(id)
+        //console.log(id)
         return async (dispatch,getState) => {
             try{const res = await axios.get(`http://localhost:4000/api/itineraries/${id}`)
             dispatch({type: 'fetchOneItinerary', payload: res.data.response})
-            console.log(res.data)
+            //console.log(res.data)
             
         }
             catch(err){

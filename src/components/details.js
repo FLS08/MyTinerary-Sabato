@@ -24,18 +24,18 @@ import ItineraryDetails from './itineraryDetails';
 function Details(props) {
     
     let {id} = useParams()
-    console.log(id)
+    //console.log(id)
 
     /* const [data,setData]= useState(false) */
     const data = useSelector(store => store.citiesReducer.city)
 
     /* const data = props.city */
-    console.log(data)
+    //console.log(data)
 
     useEffect(()=>{   
 
         props.fetchOneCity(id)
-        console.log(props)
+        //console.log(props)
                                
     },[])
 
