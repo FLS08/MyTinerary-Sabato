@@ -1,0 +1,134 @@
+// MongoDB Playground
+//https://docs.mongodb.com/manual/crud/
+const database = 'mytinerary';
+
+
+use(database);
+
+// The drop() command destroys all data from a collection.
+db.itineraries.drop();
+// Inserta los documentos que nosotros le indiquemos.
+db.itineraries.insertMany([
+  
+  
+    {
+    "city": "Ibiza",
+    "city_id":"62183b786e0fdcede7bf97b3",
+    "country": "Spain",
+    "imgUser": "messi.jpg",
+    "userName":"Lionel Messi",
+    "itineraryName":"Run with Messi!",
+    "price":5,
+    "duration":"1 hour",
+    "likes":0,
+    "hashtags":["#SportsLearning","#Legendary","#LionelMessi","#Football"],
+    "comments":"",
+    
+},
+{
+    "city": "Ibiza",
+    "city_id":"62183b786e0fdcede7bf97b3",
+    "country": "Spain",
+    "imgUser": "cristiano.jpg",
+    "userName":"Cristiano Ronaldo",
+    "itineraryName":"Ronaldo's Ibiza Fest",
+    "price":5,
+    "duration":"1 night",
+    "likes":0,
+    "hashtags":["#ElectronicDancing","#Legendary","#CristianoRonaldo","#Fest"],
+    "comments":"",
+    
+},
+
+{
+    "city": "Moscow",
+    "city_id":"62183b786e0fdcede7bf97b4",
+    "country": "Russia",
+    "imgUser": "putin.jpg",
+    "userName":"Vladimir Putin",
+    "itineraryName":"War Tactics",
+    "price":1,
+    "duration":"1 year",
+    "likes":0,
+    "hashtags":["#War","#Tactics","#VladimirPutin","#Leader"],
+    "comments":"",
+},
+{
+    "city": "Moscow",
+    "city_id":"62183b786e0fdcede7bf97b4",
+    "country": "Russia",
+    "imgUser": "donald.jpg",
+    "userName":"Donald Trump",
+    "itineraryName":"HairCut at Kremlin",
+    "price":3,
+    "duration":"1 week",
+    "likes":0,
+    "hashtags":["#HairStyle","#Tactics","#DonaldTrump","#Leader"],
+    "comments":"",
+},
+{
+    "city": "San Andres",
+    "country": "Colombia",
+    "img": "sanandres.jpg",
+
+},
+{
+    "city": "El Chalten",
+    "country": "Argentina",
+    "img": "chalten.jpg",
+},
+{
+    "city": "Buzios",
+    "country": "Brazil",
+    "img": "buzios.jpg",
+},
+{
+    "city": "Natal",
+    "country": "Brazil",
+    "img": "natal.jpg",
+},
+{
+    "city": "Edinburgh",
+    "country": "Scotland",
+    "img": "edinburg.jpg",
+
+},
+{
+    "city": "Cayo Guillermo",
+    "country": "Cuba",
+    "img": "cayo.jpg",
+},
+{
+    "city": "Los Angeles",
+    "country": "United States",
+    "img": "losangeles.jpg",
+},
+{
+    "city": "New York",
+    "country": "United States",
+    "img": "newyork.jpg",
+},
+{
+    "city": "Normandy",
+    "country": "France",
+    "img": "normandy.jpg",
+},
+{
+    "city": "Mykonos",
+    "country": "Greece",
+    "img": "mykonos.jpg",
+
+},
+{
+    "city": "Cappadocia",
+    "country": "Turkey",
+    "img": "capadoccia.jpg",
+},
+{
+    "city": "Amalfi",
+    "country": "Italy",
+    "img": "amalfi.jpg",
+}    
+   
+]);
+

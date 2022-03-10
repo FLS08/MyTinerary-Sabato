@@ -63,6 +63,11 @@ function Details(props) {
                 </Card>}           
             </div>                          
          }
+
+        <div>
+            {/* Itineraries area */}
+        </div>
+
       </div>
    
 
