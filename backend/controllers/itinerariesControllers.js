@@ -1,4 +1,4 @@
-const Itineraries = require("../models/itineraries");
+const Itineraries = require("../models/tinerarys");
 
 const itinerariesControllers = {
   getItineraries: async (req, res) => {
@@ -54,7 +54,7 @@ const itinerariesControllers = {
     let itineraries;
     let error = null;
     try {
-      itineraries = await Itineraries.findOne({_id:req.params.id});
+      itineraries = await Itineraries.find({city_id:req.params.id});
     } catch (err) {
       error = err;
       console.log(error);

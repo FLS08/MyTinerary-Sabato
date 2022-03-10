@@ -43,7 +43,6 @@ const citiesControllers = {
     }res.json({success:true, response:citiesdb})
   },
   getOneCity: async (req, res) => {
-    console.log("Hola")
     let cities;
     let error = null;
     try {

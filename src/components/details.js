@@ -1,12 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import {useParams} from 'react-router-dom'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import itineraryDetails from './itineraryDetails';
+
+/*IMPORTS FROM REDUX  */
 import citiesAction from '../redux/action/citiesAction';
+import itinerariesAction from '../redux/action/itinerariesAction';
 import {connect, useSelector} from 'react-redux'
+import ItineraryDetails from './itineraryDetails';
+
+
 
 
 
@@ -15,7 +22,6 @@ import {connect, useSelector} from 'react-redux'
 
 
 function Details(props) {
-
     
     let {id} = useParams()
     console.log(id)
@@ -29,8 +35,11 @@ function Details(props) {
     useEffect(()=>{   
 
         props.fetchOneCity(id)
+        console.log(props)
                                
-    } ,[])
+    },[])
+
+    
 
 
     
@@ -42,7 +51,9 @@ function Details(props) {
         {        
                 
             
-            <div>                
+            <div>                   {/* data area */}
+
+                                
                   {data && <Card className='cards' sx={{ maxWidth: 768 ,ml:4,mr:4}}>
                     <CardActionArea>
                         <CardMedia
@@ -64,8 +75,8 @@ function Details(props) {
             </div>                          
          }
 
-        <div>
-            {/* Itineraries area */}
+        <div className='itinerariesArea'>                       {/* Itineraries area */}
+            <ItineraryDetails />
         </div>
 
       </div>
@@ -79,15 +90,4 @@ const mapDispatchToProps = {
 }
 
 
-const mapStateToProps = (state) => {
-
-    
-    return {
-        cities: state.citiesReducer.cities,
-        aux: state.citiesReducer.aux,
-        city: state.citiesReducer.city
-    
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Details)
+export default connect(null, mapDispatchToProps)(Details)

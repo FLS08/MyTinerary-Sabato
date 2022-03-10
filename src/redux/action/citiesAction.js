@@ -41,10 +41,6 @@ const citiesAction = {
     }
     
 
-    
-
-
-
 }
 
 export default citiesAction

@@ -65,70 +65,7 @@ db.itineraries.insertMany([
     "likes":0,
     "hashtags":["#HairStyle","#Tactics","#DonaldTrump","#Leader"],
     "comments":"",
-},
-{
-    "city": "San Andres",
-    "country": "Colombia",
-    "img": "sanandres.jpg",
-
-},
-{
-    "city": "El Chalten",
-    "country": "Argentina",
-    "img": "chalten.jpg",
-},
-{
-    "city": "Buzios",
-    "country": "Brazil",
-    "img": "buzios.jpg",
-},
-{
-    "city": "Natal",
-    "country": "Brazil",
-    "img": "natal.jpg",
-},
-{
-    "city": "Edinburgh",
-    "country": "Scotland",
-    "img": "edinburg.jpg",
-
-},
-{
-    "city": "Cayo Guillermo",
-    "country": "Cuba",
-    "img": "cayo.jpg",
-},
-{
-    "city": "Los Angeles",
-    "country": "United States",
-    "img": "losangeles.jpg",
-},
-{
-    "city": "New York",
-    "country": "United States",
-    "img": "newyork.jpg",
-},
-{
-    "city": "Normandy",
-    "country": "France",
-    "img": "normandy.jpg",
-},
-{
-    "city": "Mykonos",
-    "country": "Greece",
-    "img": "mykonos.jpg",
-
-},
-{
-    "city": "Cappadocia",
-    "country": "Turkey",
-    "img": "capadoccia.jpg",
-},
-{
-    "city": "Amalfi",
-    "country": "Italy",
-    "img": "amalfi.jpg",
-}    
+}
    
 ]);
 

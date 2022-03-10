@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const tinerarysSchema = new mongoose.Schema({
+const tinerariesSchema = new mongoose.Schema({
     city:{type:String, required:true},
     city_id:{type:String, required:true},
     country:{type:String, required:true},
@@ -13,7 +13,6 @@ const tinerarysSchema = new mongoose.Schema({
     hashtags:{type:Array, required:true},
     coments:{type:String, required:true},
 
-
 })
-const Itineraries = mongoose.model('itineraries', tinerarysSchema)
+const Itineraries = mongoose.model('itineraries', tinerariesSchema)
 module.exports = Itineraries
