@@ -246,6 +246,9 @@ button {
    
    /* ESTILOS APLICADOS A DETAILS */
 
+   .details{
+       background-image: url('../public/images/hero3.jpg');
+   }
    .itinerariesArea{
        margin: 20px 0;
        display: flex;

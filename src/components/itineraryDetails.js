@@ -53,8 +53,8 @@ function ItineraryDetails(props) {
   return(
      <> 
     { dataItineraries.length > 0 ? dataItineraries.map(itinerary =>
-        <>
-        <Card sx={{ maxWidth: 345 }}>
+        <div key={itinerary._id}>
+        <Card  sx={{ maxWidth: 345 }}>
         <CardHeader
           avatar={
             <Avatar>
@@ -107,7 +107,7 @@ function ItineraryDetails(props) {
           </CardContent>
         </Collapse>
       </Card>
-      </>
+      </div>
     ): <h1 className="notFound">Sorry, We don't have any itineraries yet. Try another City..</h1>}
     </>
   )

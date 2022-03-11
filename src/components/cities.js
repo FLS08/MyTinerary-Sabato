@@ -35,7 +35,7 @@ function Cities(props) {
     
   }
   
-  console.log(props)
+  //console.log(props)
 
   
  
@@ -57,7 +57,7 @@ function Cities(props) {
         
         {props.filtCities.length === 0 ? (<NotFound/>) : props.filtCities?.map(city =>           
                                   
-              <div>                
+              <div key={city._id}>                
               <Card className='cards' sx={{ maxWidth: 345 ,ml:6,mr:4}}>
                   <CardActionArea>
                   <CardMedia

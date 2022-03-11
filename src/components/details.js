@@ -47,7 +47,7 @@ function Details(props) {
 
   return (
 
-     <div>
+     <div className='details'>
         {        
                 
             

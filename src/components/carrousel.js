@@ -52,7 +52,8 @@ export default function Carrousel() {
             }         
         }}       
         >          
-        {data.map(city =>           
+        {data.map(city => 
+        <div>          
         <SwiperSlide className='swiperS'>                          
             <div>                
             <Card className='cards' sx={{ maxWidth: 345 ,ml:6,mr:4}}>
@@ -74,7 +75,8 @@ export default function Carrousel() {
                 </CardActions>
             </Card>            
             </div>          
-        </SwiperSlide>                  
+        </SwiperSlide>
+        </div>                  
         )}       
         </Swiper>     
         </div>   
