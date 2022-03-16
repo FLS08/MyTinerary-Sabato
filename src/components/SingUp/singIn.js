@@ -1,7 +1,6 @@
-import './styleSign.css'
 import React from 'react'
 import { connect } from 'react-redux';
-import userActions from '../../redux/actions/userActions';
+import userActions from '../../redux/action/userAction'
 import { Link } from 'react-router-dom';
 
 function SignIn(props) {
