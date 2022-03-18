@@ -45,12 +45,12 @@ function Cities(props) {
     <>
       <div className='cities'>
 
-        <h2>Find your Perfect Tinerary..</h2>
+        <h2>Find your Perfect MyTinerary</h2>
         
         <input 
           className='form-control inputSearch'
           onChange={filteredCities} 
-          placeholder='Search any City or Country.. '
+          placeholder='Search by City.. '
         />
         
         
@@ -58,7 +58,7 @@ function Cities(props) {
                                   
               <div key={city._id}>                
               <Card className='cards' sx={{ maxWidth: 345 ,ml:6,mr:4}}>
-                  <CardActionArea>
+                  <CardActionArea sx={{display:'flex',flexDirection:'column'}}>
                   <CardMedia
                       component="img"
                       height="300"

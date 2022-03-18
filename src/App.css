@@ -7,6 +7,8 @@
     box-sizing: border-box !important;
 }
 
+
+
 /*   ESTILOS APLICADO AL NAVBAR */
 
 #Logo{
@@ -18,21 +20,29 @@
 
 }
 .settings-navbar{
-    display:flex;
+    text-align: center;    
+}
+
+.conatainer-navbar{
+    display: flex;
     flex-direction: column;
+    justify-content: space-around;
+    padding: 4px;
 }
 
 .profilePhoto{
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     object-fit: cover;
+    margin-right: 2%;
 }
 .NavBar{
     background-color: white !important;
     width: 100% !important;
     height: 140px !important;
     color: black !important;
+        
     
 }
 
@@ -43,6 +53,8 @@
     font-family: 'Montserrat', sans-serif;
 
 }
+
+
 
 /********************************/
 /*   ESTILOS APLICADOS AL HOME */
@@ -299,6 +311,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 10px;
 }
 
 .contenedorform{
@@ -311,6 +324,7 @@ button {
     align-items: center;
     background-image: url('../public/images/hero1.jpg');
     background-size: cover;
+    background-position: center;
     margin-top: 8rem;
 
 }

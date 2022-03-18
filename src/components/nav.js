@@ -8,7 +8,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import Logo from './logo';
 import {Link} from "react-router-dom"
 import {connect} from 'react-redux'
@@ -41,7 +40,7 @@ const NavBar = (props) => {
   function SignOut() {
 		props.SignOutUser(props.user.email)
 	}
-  console.log(props);
+  //console.log(props);
 
 
   return (
@@ -101,11 +100,11 @@ const NavBar = (props) => {
           <Box sx={{mt:'20px', flexGrow: 0 }}>
             <Tooltip >
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-              {!props.user ? <PersonOutlineIcon /> : <img src={props.user.urlImage} alt="ph" className='profilePhoto' />  }
+              {!props.user ? <img src="https://www.seekpng.com/png/detail/72-729756_how-to-add-a-new-user-to-your.png" className='profilePhoto' alt='userProfile'/> : <img src={props.user.urlImage} alt="ph" className='profilePhoto' />  }
               </IconButton>
             </Tooltip>
           <Menu
-              sx={{ mt: '45px' }}
+              sx={{ mt: '50px',display:'flex',flexDirection:'column' }}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
@@ -119,22 +118,22 @@ const NavBar = (props) => {
               }}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
-              className="settings-navbar"
+              
             >
             {!props.user ? 
-            <>
-            <MenuItem>
+            <div className='container-navbar'>
+            <MenuItem className="settings-navbar">
               <Link to="/auth/signin" className='link'>Sign In</Link>
             </MenuItem>
-            <MenuItem>
+            <MenuItem className="settings-navbar">
               <Link to="/auth/signup" className='link'>Sign Up</Link>
             </MenuItem>
-            </>:
-            <>
-            <MenuItem>
-              <Link to="/auth/signin" className='link' onClick={SignOut}>Log Out</Link>
+            </div>:
+            <div className='container-navbar'>
+            <MenuItem className='logOut'>
+              <Link to="/auth/signin"  onClick={SignOut}>Log Out</Link>
             </MenuItem>
-            </> }
+            </div> }
           </Menu>
           </Box>
         </Toolbar>

@@ -7,7 +7,7 @@ const userActions = {
         return async (dispatch, getState) => {
 
             const res = await axios.post('http://localhost:4000/api/auth/signUp', { userData})
-            console.log(res)
+            //console.log(res)
             dispatch({type: 'message', 
                        payload: {view: true,
                                  message: res.data.message,
@@ -20,7 +20,7 @@ const userActions = {
         return async (dispatch, getState) => {
             
             const user = await axios.post('http://localhost:4000/api/auth/signIn', { logedUser })
-            console.log(user);
+            //console.log(user);
             
 
             if(user.data.success){
@@ -43,13 +43,13 @@ const userActions = {
     VerifyToken: (token) => {
 
         return async (dispatch, getState) => {
-            console.log(token)
+            //console.log(token)
             const user = await axios.get('http://localhost:4000/api/auth/signInToken', {
                 headers: {
                     'Authorization': 'Bearer ' + token
                 }
             })
-            console.log(user)
+            //console.log(user)
             
             if (user.data.success) {
                 dispatch({ type: 'user', payload: user.data.response });

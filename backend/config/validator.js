@@ -3,25 +3,25 @@ const joi = require('joi')
 const validator = (req, res, next) => {
     const schema = joi.object({
         name: joi.string().max(20).min(3).trim().pattern(new RegExp('[a-zA-Z]')).required().messages({
-            'string.min':'El NOMBRE debe contener mas de 3 caracteres',
-            'string.max':"El nombre debe contener como maximo 20 caracteres"
+            'string.min':'Name must contain more than 3 character',
+            'string.max':"Name must contain more than 3 character"
         }),
         lastName: joi.string().max(20).min(3).trim().pattern(new RegExp('[a-zA-Z]')).required().messages({
-            'string.min':'El Apellido debe contener mas de 3 caracteres',
-            'string.max':"El Apellido debe contener como maximo 20 caracteres"
+            'string.min':'The lastName must contain more than 3 character',
+            'string.max':"The lastname must contain a maximum of 20 characterss"
         }),
         urlImage: joi.string(),
         country: joi.string().max(20).min(3).trim().pattern(new RegExp('[a-zA-Z]')).required().messages({
-            'string.min':'El pais debe contener mas de 3 caracteres',
-            'string.max':"El pais debe contener como maximo 20 caracteres"
+            'string.min':'The country must contain more than 3 characters',
+            'string.max':"The country must contain a maximum of 20 characters"
         }),
 
         email: joi.string().email({ minDomainSegments: 2 }).required().messages({
-            'string.email':'Formato incorrecto de email'
+            'string.email':'Wrong email format'
         }),
         password: joi.string().pattern(new RegExp('[a-zA-Z0-9]')).required().trim().min(8).max(30).messages({
-            'string.min':'El password debe contener minimo 8 caracteres y contener mayuscula, minuscula y numero',
-            'string.pattern':"El password debe ser alphanumerico y contener un numero"
+            'string.min':'The password must contain at least 8 characters and contain uppercase, lowercase and number',
+            'string.pattern':"The password must be alphanumeric and contain a number"
         }),
         
         from:joi.string()

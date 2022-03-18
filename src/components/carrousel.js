@@ -57,7 +57,7 @@ export default function Carrousel() {
         <SwiperSlide className='swiperS'>                          
             <div>                
             <Card className='cards' sx={{ maxWidth: 345 ,ml:6,mr:4}}>
-                <CardActionArea>
+                <CardActionArea sx={{display:'flex',flexDirection:'column'}}>
                 <CardMedia
                     component="img"
                     height="300"
