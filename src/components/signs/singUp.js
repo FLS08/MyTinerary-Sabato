@@ -71,6 +71,7 @@ function SignUp(props) {
               
               <button type="submit" className="crearcuenta btn btn-primary">Create account</button>
             </form>
+            <h5>If you have an account..</h5>
             <div>
               <Link to={'/auth/signin'}> <h1 className="to-sign"> Check SignIn!</h1> </Link>
 

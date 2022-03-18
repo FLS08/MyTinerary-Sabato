@@ -34,12 +34,13 @@ function SignIn(props) {
 
               <div className="mb-3">
                 <div className="input-group">
-                    <input type="password" className="inputForm " aria-describedby="validationTooltipUsernamePrepend" required placeholder="Contraseña"/>
+                    <input type="password" className="inputForm " aria-describedby="validationTooltipUsernamePrepend" required placeholder="Password"/>
                   </div>
               </div>
               
               <button type="submit" className="crearcuenta btn btn-primary">Sign In..</button>
             </form>
+            <h5>Have an account?</h5>
             <div>
               <Link to={'/auth/signup'}> <h1 className="to-sign"> Check SignUp!</h1> </Link>
 
