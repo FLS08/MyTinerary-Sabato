@@ -7,6 +7,8 @@ import FacebookSignUp from "./signUpFacebook";
 
 function SignUp(props) {
 
+  const countries = ["United States","Canada","England","Australia","New Zeland","Argentina","South Africa","Brazil","Saudi Arabia"]
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -50,7 +52,7 @@ function SignUp(props) {
               <div className="mb-3">
                 <div className="input-group">
                     <select name="country" id="selectCountry" className="inputForm" aria-describedby="validationTooltipUsernamePrepend" required placeholder="Country">
-                      <option value="Argentina">Argentina</option>
+                      {countries.map((country,key)=>(<option value={country} key={key}> {country} </option>))}
                     </select>
                   </div>
               </div>
