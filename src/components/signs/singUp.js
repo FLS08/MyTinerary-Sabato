@@ -65,11 +65,11 @@ function SignUp(props) {
 
               <div className="mb-3">
                 <div className="input-group">
-                    <input type="password" className="inputForm " aria-describedby="validationTooltipUsernamePrepend" required placeholder="Contraseña"/>
+                    <input type="password" className="inputForm " aria-describedby="validationTooltipUsernamePrepend" required placeholder="Password"/>
                   </div>
               </div>
               
-              <button type="submit" className="crearcuenta btn btn-primary">Crear cuenta</button>
+              <button type="submit" className="crearcuenta btn btn-primary">Create account</button>
             </form>
             <div>
               <Link to={'/auth/signin'}> <h1 className="to-sign"> Check SignIn!</h1> </Link>
