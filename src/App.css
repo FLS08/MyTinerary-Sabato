@@ -17,7 +17,17 @@
    
 
 }
+.settings-navbar{
+    display:flex;
+    flex-direction: column;
+}
 
+.profilePhoto{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
 .NavBar{
     background-color: white !important;
     width: 100% !important;
@@ -45,6 +55,7 @@
 
 /********************************/
 /*   ESTILOS APLICADOS AL HERO */
+
 
 .Hero{
     width: 100% !important;
@@ -277,14 +288,52 @@ button {
 
    /* ESTILOS APLICADOS AL SIGNUP */
 
+
+.to-sign{
+    background-color: dimgrey;
+    color: white;
+    padding: 1rem;
+    width: 200px;
+    height: 80px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .contenedorform{
 
     width: 100%;
-    height: 40vh;
+    height: 80vh;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
-    background-color: #e8e9eb;
-    border-radius: 5px;
+    background-image: url('../public/images/hero1.jpg');
+    background-size: cover;
     margin-top: 8rem;
+
+}
+
+.gris {
+    border: 1px solid #ec9b59e7;
+}
+  
+.crearcuenta {
+    width: 100%;
+    border-radius: 0px;
+    border: none;
+    background-color: black;
+    color: white;
+}
+  
+.crearcuenta:hover {
+    background-color: rgba(0, 0, 0, 0.596);
+    color: white;
+}
+.inputForm{
+    padding: 0.5em;
+    background-color: white;
+    border-radius: 0.2em;
+    min-width: 300px;
 }

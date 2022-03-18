@@ -3,8 +3,11 @@ const usersControllers = require('../controllers/usersControllers');
 const citiesControllers = require('../controllers/citiesControllers'); 
 const itinerariesControllers = require('../controllers/itinerariesControllers')
 const {deleteCities, getCities,loadCities, modifiCities, getOneCity } = citiesControllers
-const {signUpUsers, signInUser, signOutUser}= usersControllers
+const {signUpUsers, signInUser, signOutUser, verifyEmail, VerifyToken}= usersControllers
 const {getOneItinerary} = itinerariesControllers
+const validator = require('../config/validator')
+const passport = require('../config/passport')
+
 
 
 
@@ -20,15 +23,21 @@ Router.route('/cities/:id')
 Router.route('/itineraries/:id')
 .get(getOneItinerary)
 
-console.log("Fixed")
 
 Router.route('/auth/signUp')
-.post(signUpUsers)
+.post(validator,signUpUsers)
 
 Router.route('/auth/signIn')
 .post(signInUser)
 
 Router.route('/auth/signOut')
 .post(signOutUser)
+
+Router.route('/verify/:uniqueString') //RECIBE EL LINK DE USUARIO
+.get(verifyEmail) //LLAMA A FUNCION DE VERIFICACIION
+
+
+Router.route('/auth/signInToken')
+.get(passport.authenticate('jwt',{ session:false }), VerifyToken)
 
 module.exports = Router
