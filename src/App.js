@@ -11,9 +11,11 @@ import SignUp from '../src/components/signs/singUp';
 import Snackbar from '../src/components/signs/snackbar';
 import {connect} from 'react-redux'
 import userActions from './redux/action/userAction';
+import userReducer from './redux/reducers/userReducer'
 
 
 const App = (props) => {
+
 
   useEffect(() => {
  
@@ -50,10 +52,16 @@ const App = (props) => {
   );
 }
 
+const mapStateToProps = (state)=>{
+  return{
+    user: userReducer.user,
+  }
+}
+
 const mapDispatchToProps = {
 	VerifyToken: userActions.VerifyToken,
 
 }
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 
