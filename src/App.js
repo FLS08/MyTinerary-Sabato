@@ -11,7 +11,6 @@ import SignUp from '../src/components/signs/singUp';
 import Snackbar from '../src/components/signs/snackbar';
 import {connect} from 'react-redux'
 import userActions from './redux/action/userAction';
-import userReducer from './redux/reducers/userReducer'
 
 
 const App = (props) => {
@@ -54,7 +53,7 @@ const App = (props) => {
 
 const mapStateToProps = (state)=>{
   return{
-    user: userReducer.user,
+    user: state.userReducer.user,
   }
 }
 

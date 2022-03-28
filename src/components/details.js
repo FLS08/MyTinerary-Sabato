@@ -1,17 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {useParams} from 'react-router-dom'
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
-import itineraryDetails from './itineraryDetails';
+
 
 /*IMPORTS FROM REDUX  */
-import citiesAction from '../redux/action/citiesAction';
-import itinerariesAction from '../redux/action/itinerariesAction';
-import {connect, useSelector} from 'react-redux'
+import {connect, useDispatch, useSelector} from 'react-redux'
 import ItineraryDetails from './itineraryDetails';
+import itinerariesAction from '../redux/action/itinerariesAction';
 
 
 
@@ -22,62 +16,35 @@ import ItineraryDetails from './itineraryDetails';
 
 
 function Details(props) {
-    
+
+    const [reload, setReload] = useState(false);
+
     let {id} = useParams()
-    //console.log(id)
+    console.log(id)
+    
+    const data = useSelector(store => store.itinerariesReducer.itinerary) //Test of useSelector hook
 
-    /* const [data,setData]= useState(false) */
-    const data = useSelector(store => store.citiesReducer.city)
-
-    /* const data = props.city */
-    //console.log(data)
 
     useEffect(()=>{   
-
-        props.fetchOneCity(id)
-        //console.log(props)
-                               
-    },[])
-
-    
-
+        props.fetchOneItinerary(id)
+        
+ 
+    },[reload])
 
     
     
-
-  return (
+    //console.log(props);
+    
+    return (
 
      <div className='details'>
-        {        
-                
-            
-            <div className='detailsIMG'>                   {/* data area */}
+        
 
-                                
-                  {data && <Card className='cards' sx={{ maxWidth: 768 ,ml:4,mr:4}}>
-                    <CardActionArea>
-                        <CardMedia
-                            component="img"
-                            height="300"
-                            image={process.env.PUBLIC_URL+`/images/${data.img}` }
-                            alt="img"/>
-                        <CardContent>
-                            <Typography gutterBottom variant="h6" width={'100%'} component="div">
-                                {data.city}
-                            </Typography>
-                            <Typography gutterBottom variant="p" width={'100%'} component="div">
-                                {data.country}
-                            </Typography>
-                        </CardContent>
-                    </CardActionArea>
-                                     
-                </Card>}           
-            </div>                          
-         }
+        
+                              
+        {data.length> 0? data.map( itinerary => <ItineraryDetails className='itinerariesArea' data={itinerary} reload={reload} setReload={setReload}   />):<h1 className='noresults'>No results</h1>}   {/* Itineraries area */}
 
-        <div className='itinerariesArea'>                       {/* Itineraries area */}
-            <ItineraryDetails />
-        </div>
+        
 
       </div>
    
@@ -85,9 +52,14 @@ function Details(props) {
   )
 }
 
+
+
 const mapDispatchToProps = {
-    fetchOneCity: citiesAction.fetchOneCity
+    fetchOneItinerary: itinerariesAction.fetchOneItinerary,
+
 }
+
+
 
 
 export default connect(null, mapDispatchToProps)(Details)

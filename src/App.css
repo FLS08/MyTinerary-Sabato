@@ -12,10 +12,11 @@
 /*   ESTILOS APLICADO AL NAVBAR */
 
 #Logo{
-    width: 200px;
-    max-height: 125px;
+    width: 150px;
+    height: 120px;
+    margin-top: 9px;
     object-fit: cover;
-    margin-top: 0.5rem;
+    overflow: hidden;
    
 
 }
@@ -40,7 +41,7 @@
 .NavBar{
     background-color: white !important;
     width: 100% !important;
-    height: 140px !important;
+    height: 130px !important;
     color: black !important;
         
     
@@ -271,34 +272,187 @@ button {
 
    .details{
        background-image: url('../public/images/hero3.jpg');
-   }
-   .itinerariesArea{
-       margin: 20px 0;
+       background-repeat: no-repeat;
+       background-size: cover;
+       min-height: 300vh;
+       width: 100%;
        display: flex;
        justify-content: space-evenly;
-       align-items: center;
+/*        align-items: center;
+ */       text-align: center;
        flex-wrap: wrap;
        
    }
+   .itinerariesArea{
+       background-color: aliceblue;
+       border-radius: 1rem;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       height: 540px;
+       width: 310px;
+       margin: 180px 30px 30px 30px;
+       object-fit: contain;
+       
+       
+   }
+
+   .itinerariesSuperior{
+       display: flex;
+       flex-direction: column;
+       justify-content: space-evenly;
+    
+   }
+   
 
    .imgUser{
-       max-width: 220px;
+       width: 100%;
+       height: 300px;
        object-fit: cover;
+       border-top: 1rem;
    }
 
-   .detailsIMG{
-       margin-top: 150px;
+   .noresults{
+       margin-top: 300px;
+   }
+
+   .accordionHeader{
+       margin-left: auto;
+       margin-right: auto;
+
+   }
+
+   .accordionHeader h6{
+       font-size: 20px;
+   }
+
+   .likes{
        display: flex;
+       width: 100%;
        justify-content: center;
-       align-items: center;
+       padding: 1rem;
+
    }
 
-   .notFound{
-       text-align: center;
-       padding: 0 5%;
+   .likes span{
+       margin-right: 2%;
    }
+   
 
-   /* ESTILOS APLICADOS AL SIGNUP */
+/********************************/
+
+    /*ESTILOS APLICADOS A ACTIVITIES */
+
+    .activityImage{
+        width: 260px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 0.5rem;
+    }
+
+/********************************/
+   /* ESTILOS APLICADOS A COMMENTS */
+
+   .cardComments{
+    width:100% !important;
+    height: auto !important;
+    min-height: fit-content !important;
+    background-color: white !important;
+}
+.textComments{
+    width: 100% !important;
+    resize: none;
+    overflow: hidden;
+    text-align: initial; 
+}
+.textComments:focus-visible{
+    outline-color:  rgb(6, 101, 114) !important;
+    color: black;
+    box-shadow:
+      0 0 5px rgb(6, 101, 114),
+      0 0 10px rgb(6, 101, 114),
+      0 0 20px rgb(6, 101, 114),
+      0 0 40px rgb(6, 101, 114),
+      0 0 60px rgb(6, 101, 114);
+    
+      
+}
+
+.textDetail{
+    margin: 0;
+    text-align: initial;
+}
+.cardHeader{
+    text-align: initial;
+    background-color: gray !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.cardHeader p{
+   margin: 0;
+}
+.cardHeaderNew{
+    background-color: rgb(75, 73, 73) !important;
+    color: #fff;
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #fff,
+      0 0 20px #fff,
+      0 0 40px #0ff,
+      0 0 80px #0ff,
+      0 0 90px #0ff,
+      0 0 100px #0ff,
+      0 0 150px #0ff;
+}
+.cardText{
+    text-align: initial;
+    
+}
+[contenteditable=true]:empty:before {
+    content: attr(placeholder);
+    display: block;
+    color: rgb(78, 76, 76);
+  }
+.btnComments{
+    margin: 10px !important;
+    font-size: 1.2rem;
+    transition: 0.3s all !important;
+    font-family:"Comic Sans MS" ;
+    background-color: black;
+    border: 0;
+    width: 50%;
+}
+.btnComments:hover{
+    background-color: black !important;
+    color: white !important;
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #fff,
+      0 0 20px #fff,
+      0 0 40px #0ff,
+      0 0 80px #0ff,
+      0 0 90px #0ff,
+      0 0 100px #0ff,
+      0 0 150px #0ff;
+    
+  }
+  .btnComments:focus{
+    background-color: black !important;
+    color: white !important;
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #fff,
+      0 0 20px #fff,
+      0 0 40px #0ff,
+      0 0 80px #0ff,
+      0 0 90px #0ff,
+      0 0 100px #0ff,
+      0 0 150px #0ff;
+    
+  }
+
+   /*ESTILOS APLICADOS AL SIGNUP */
 
 
 .to-sign{
@@ -335,7 +489,7 @@ button {
   
 .crearcuenta {
     width: 100%;
-    border-radius: 0px;
+    border-radius: 200px;
     border: none;
     background-color: black;
     color: white;

@@ -1,7 +1,10 @@
 import axios from "axios";
+import {React, useState } from "react";
+
 
 
 const itinerariesAction = {
+
 
     fetchItineraries: () => {
         return async(dispatch,getState)=>{
@@ -10,8 +13,8 @@ const itinerariesAction = {
         }  
     },
 
-    fetchOneItinerary: (id) =>{
-        //console.log(id)
+    fetchOneItinerary: (id) =>{     //FETCH ITINERARIES BY CITY
+        console.log(id)
         return async (dispatch,getState) => {
             try{const res = await axios.get(`http://localhost:4000/api/itineraries/${id}`)
             dispatch({type: 'fetchOneItinerary', payload: res.data.response})
@@ -35,11 +38,30 @@ const itinerariesAction = {
         }
     },
 
-    filterItineraries: (itineraries,value)=>{
-        return (dispatch, getState)=>{
-            dispatch({type: 'filt', payload: {itineraries,value } })
+     likeDislike:(itineraryId) =>{
+
+        return async () =>{
+            try {
+                const token = localStorage.getItem("token");
+                const res = await axios.put(`http://localhost:4000/api/likeDislike/${itineraryId}`,
+                {},
+                {
+                  headers: {
+                    Authorization: "Bearer " + token,
+                  },
+                })
+                console.log(res.data);
+                return res 
+                
+            } catch (error) {
+                console.log(error)
+                
+            }
+
         }
-    }
+    } 
+
+ 
     
 
 }

@@ -1,123 +1,158 @@
-import * as React from "react";
-import { useEffect } from "react";
-import { styled } from "@mui/material/styles";
-import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
-import CardMedia from "@mui/material/CardMedia";
-import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import Collapse from "@mui/material/Collapse";
-import Avatar from "@mui/material/Avatar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import React, { useEffect, useState } from "react";
+import Activities from "./activities"
+import Likes from "./likes";
+import {Accordion} from 'react-bootstrap'
 
-/*IMPORTS FROM REDUX  */
-import itinerariesAction from "../redux/action/itinerariesAction";
-import { connect, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+/* IMPORTS FROM REDUX */
+import { connect } from "react-redux";
+import commentsActions from "../redux/action/commentsAction"
 
-const ExpandMore = styled((props) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-  transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
-  marginLeft: "auto",
-  transition: theme.transitions.create("transform", {
-    duration: theme.transitions.duration.shortest,
-  }),
-}));
 
 function ItineraryDetails(props) {
-  /* FETCH ZONE BY ID */
 
-  let { id } = useParams();
-  const dataItineraries = useSelector(
-    (store) => store.itinerariesReducer.itinerary
-  );
+  const itinerarios= props.data
+  console.log(itinerarios);
 
-  useEffect(() => {
-    props.fetchOneItinerary(id);
-  }, []);
+  const [itineraries, setItineraries] = useState()
+  const [inputText, setInputText] = useState()
+  const [modifi, setModifi] = useState()
 
-  /* ITINERARY CARD ZONE */
-  const [expanded, setExpanded] = React.useState(false);
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+  const reload = props.reload
+  const setReload = props.setReload
 
+  async function loadComment(event) {
+
+    const commentData = {
+      itineraryId: props.data._id,
+      comment: inputText,
+    }
   
+    await props.addComment(commentData)
+      .then(response => setItineraries(response.data.response.nuevoComment),setInputText(""))
+    document.querySelector('#newComment').textContent = ""
+    
+   
+  }
 
-  return(
-     <> 
-    { dataItineraries.length > 0 ? dataItineraries.map(itinerary =>
-        <div key={itinerary._id}>
-        <Card  sx={{ maxWidth: 345 }}>
-        <CardHeader
-          avatar={
-            <Avatar>
-              <CardMedia
-                component="img"
-                height="40"
-                image={
-                  process.env.PUBLIC_URL + `/images/${itinerary.imgUser}`
-                }
-                alt={itinerary.userName}
-              />
-            </Avatar>
-          }
-          title={itinerary.itineraryName}
-          subheader={itinerary.userName}
-        />
-        <CardMedia
+  async function modifiComment(event) {
+    const commentData = {
+      commentID: event.target.id,
+      comment: modifi,
+    }
+    console.log(modifi)
+    await props.modifiComment(commentData)
+    setReload(!reload)
+
+  }
+  async function deleteComment(event) {
+    await props.deleteComment(event.target.id)
+    setReload(!reload)
+  }
+
+    
+  console.log(props.data)
+
+  return (
+    <div className="itinerariesArea">
+      
+      <div className="itinerariesSuperior">
+        <h4>{props.data.userName}</h4>
+        <p>Duration : {props.data.duration}</p>
+        <p>{'💵'.repeat(props.data.price)}</p>
+        <img
+          src={process.env.PUBLIC_URL + `/images/${props.data.imgUser}`}
           className="imgUser"
-          component="img"
-          height="194"
-          image={process.env.PUBLIC_URL + `/images/${itinerary.imgUser}`}
-          alt={itinerary.userName}
-        />
-        <CardContent>
-          <Typography variant="body2" color="text.secondary">
-            {itinerary.price} {itinerary.duration}{" "}
-            {itinerary.Hashtags}
-          </Typography>
-        </CardContent>
-        <CardActions disableSpacing>
-          <IconButton aria-label="add to favorites">
-            <FavoriteIcon /> {itinerary.likes}
-          </IconButton>
-
-          <ExpandMore
-            expand={expanded}
-            onClick={handleExpandClick}
-            aria-expanded={expanded}
-            aria-label="show more"
-          >
-            <ExpandMoreIcon />
-          </ExpandMore>
-        </CardActions>
-        <Collapse in={expanded} timeout="auto" unmountOnExit>
-          <CardContent>
-            <Typography tittle>THIS</Typography>
-            <Typography tittle>SECTION</Typography>
-            <Typography tittle>IS UNDER</Typography>
-            <Typography>CONSTRUCTION, WE SORRY... :(</Typography>
-          </CardContent>
-        </Collapse>
-      </Card>
+          alt="imgUser"
+          />
+        {/*<p>{props.data.Hashtags}</p> */}
       </div>
-    ): <h1 className="notFound">Sorry, We don't have any itineraries yet. Try another City..</h1>}
-    </>
-  )
 
+      <Likes likes={props.data.likes} id={props.data._id} reload={reload} setReload={setReload} />
+      
+      <Accordion defaultActiveKey="0">
+        <Accordion.Item eventKey="0">
+          <Accordion.Header className="accordionHeader">
+            <h6>{props.data.itineraryName}</h6>
+          </Accordion.Header>
+          <Accordion.Body>
+            
+            <Activities itineraryId={props.data._id}  />               
+          
+          </Accordion.Body>
+        </Accordion.Item>
+        <Accordion.Item eventKey="1">
+          <Accordion.Header className="accordionHeader">
+            <h6>Comments</h6>
+          </Accordion.Header>
+          <Accordion.Body>
+            
+          
+          <div>
+         
+          {(itinerarios.coments).map(comment =>
+                  <>
+                    {comment?.userId._id !== props?.user?._id ?
+                      <div className="card cardComments " key={comment._id}>
+                        <div className="card-header cardHeader">
+                          {comment.userId?.name}
+                        </div>
+                        <div className="card-body">
+                          <p className="card-text cardText">{comment.coment}</p>
+                        </div>
+                      </div> :
 
-  
+                      <div className="card cardComments">
+                        <div className="card-header cardHeader">
+                          <p>{comment.userId.userName}</p> 
+                        </div>
+                        <div className="card-body ">
+                        
+                          <div type="text" className="card-text textComments" onInput={(event) => setModifi(event.currentTarget.textContent)} contentEditable >{comment.coment}</div>
+                          <button id={comment._id} onClick={modifiComment} className="btn btn-primary btnComments">Modify</button>
+                          <button id={comment._id} onClick={deleteComment} className="btn btn-primary btnComments">Delete</button>
+                        </div>
+                      </div>
+                    }
+                  </>
+                )}
+                {props.user ?
+                  <div className="card cardComments">
+                    <div className="card-header cardHeaderNew">
+                      DEJANOS TU COMENTARIO
+                    </div>
+                    <div className="card-body ">
+                      <div id="newComment" placeholder='Ingresa aqui tu comentario...' onInput={(event) => setInputText(event.currentTarget.textContent)} contentEditable className="card-text textComments" ></div>
+                      <button onClick={loadComment} className="btn btn-primary btnComments">Cargar</button>
+                    </div>
+                  </div> :
+                  <h6>Please Signin to leave a comment</h6>
+                }
+                               
+                </div>  
+          
+          </Accordion.Body>
+        </Accordion.Item>
+      </Accordion>
+
+    </div>
+  );
 }
 
 const mapDispatchToProps = {
-  fetchOneItinerary: itinerariesAction.fetchOneItinerary,
-};
+  addComment: commentsActions.addComment,
+  modifiComment: commentsActions.modifiComment,
+  deleteComment: commentsActions.deleteComment,
+  
 
-export default connect(null, mapDispatchToProps)(ItineraryDetails);
+}
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.userReducer.user
+
+  }
+
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(ItineraryDetails)

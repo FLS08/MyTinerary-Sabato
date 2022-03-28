@@ -18,10 +18,6 @@ function Cities(props) {
 
    
  
-   
-
- 
-
   useEffect(()=>{   
 
     props.fetchCities();
