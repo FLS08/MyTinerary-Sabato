@@ -32,7 +32,7 @@ function ItineraryDetails(props) {
       .then(response => setItineraries(response.data.response.nuevoComment),setInputText(""))
     document.querySelector('#newComment').textContent = ""
     
-   
+    setReload(!reload)
   }
 
   async function modifiComment(event) {
