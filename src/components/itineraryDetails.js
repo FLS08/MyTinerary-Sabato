@@ -119,10 +119,10 @@ function ItineraryDetails(props) {
                 {props.user ?
                   <div className="card cardComments">
                     <div className="card-header cardHeaderNew">
-                      DEJANOS TU COMENTARIO
+                      Leave us your comment
                     </div>
                     <div className="card-body ">
-                      <div id="newComment" placeholder='Ingresa aqui tu comentario...' onInput={(event) => setInputText(event.currentTarget.textContent)} contentEditable className="card-text textComments" ></div>
+                      <div id="newComment" placeholder='Text your comment here...' onInput={(event) => setInputText(event.currentTarget.textContent)} contentEditable className="card-text textComments" ></div>
                       <button onClick={loadComment} className="btn btn-primary btnComments">Cargar</button>
                     </div>
                   </div> :
