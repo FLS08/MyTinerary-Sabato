@@ -92,7 +92,7 @@ function ItineraryDetails(props) {
          
           {(itinerarios.coments).map(comment =>
                   <>
-                    {comment?.userId._id !== props?.user?._id ?
+                    {comment?.userId._id !== props?.user?.id ?
                       <div className="card cardComments " key={comment._id}>
                         <div className="card-header cardHeader">
                           {comment.userId?.name}
@@ -104,12 +104,11 @@ function ItineraryDetails(props) {
 
                       <div className="card cardComments">
                         <div className="card-header cardHeader">
-                          <p>{comment.userId.userName}</p> 
+                          <p>{comment.userId.name}</p> 
                         </div>
                         <div className="card-body ">
                         
                           <div type="text" className="card-text textComments" onInput={(event) => setModifi(event.currentTarget.textContent)} contentEditable >{comment.coment}</div>
-                          <button id={comment._id} onClick={modifiComment} className="btn btn-primary btnComments">Modify</button>
                           <button id={comment._id} onClick={deleteComment} className="btn btn-primary btnComments">Delete</button>
                         </div>
                       </div>
@@ -123,7 +122,7 @@ function ItineraryDetails(props) {
                     </div>
                     <div className="card-body ">
                       <div id="newComment" placeholder='Text your comment here...' onInput={(event) => setInputText(event.currentTarget.textContent)} contentEditable className="card-text textComments" ></div>
-                      <button onClick={loadComment} className="btn btn-primary btnComments">Cargar</button>
+                      <button onClick={loadComment} className="btn btn-primary btnComments">Comment</button>
                     </div>
                   </div> :
                   <h6>Please Signin to leave a comment</h6>

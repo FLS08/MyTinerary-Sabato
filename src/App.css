@@ -357,7 +357,7 @@ button {
     width:100% !important;
     height: auto !important;
     min-height: fit-content !important;
-    background-color: white !important;
+    background-color: rgb(210, 230, 241) !important;
 }
 .textComments{
     width: 100% !important;
@@ -383,14 +383,18 @@ button {
     text-align: initial;
 }
 .cardHeader{
-    text-align: initial;
+    text-align: center;
     background-color: gray !important;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 .cardHeader p{
+   text-align: center;
+   z-index: 20;
    margin: 0;
+   padding: 1rem 0;
+   color: #fff;
 }
 .cardHeaderNew{
     background-color: rgb(75, 73, 73) !important;
