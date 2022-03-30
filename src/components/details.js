@@ -20,7 +20,6 @@ function Details(props) {
     const [reload, setReload] = useState(false);
 
     let {id} = useParams()
-    console.log(id)
     
     const data = useSelector(store => store.itinerariesReducer.itinerary) //Test of useSelector hook
 
@@ -33,7 +32,6 @@ function Details(props) {
 
     
     
-    //console.log(props);
     
     return (
 

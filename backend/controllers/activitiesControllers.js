@@ -18,7 +18,6 @@ const activitiesControllers = {
   },
 
   loadActivities: async (req, res) => {
-    console.log(req.body);
     const { activityName, place, activityImage, itineraryId } = req.body;
     new Activities({
       activityName,
@@ -32,7 +31,6 @@ const activitiesControllers = {
 
   deleteActivities: async (req, res) => {
     const id = req.params.id;
-    console.log(req.params);
     await Activities.findOneAndDelete({ _id: id });
   },
 
@@ -41,7 +39,7 @@ const activitiesControllers = {
     const activity = req.body;
     let activitiesdb;
     try {
-      activitiesdb = await Cities.findOneAndUpdate({ _id: id }, activity, {
+      activitiesdb = await Activities.findOneAndUpdate({ _id: id }, activity, {
         new: true,
       });
     } catch (err) {
@@ -50,7 +48,6 @@ const activitiesControllers = {
     res.json({ success: true, response: activitiesdb });
   },
   getActivitiesByItineraryId: async (req, res) => {
-    console.log(req.params)
     let activities;
     let error = null;
     try {
@@ -66,17 +63,7 @@ const activitiesControllers = {
     });
   },
 
-  /* getActivitiesByItineraryId: async (req, res) => {
-    try {
-      const activities = await Activities.find({
-        itinearyId: req.params.itinearyId,
-      });
-      res.json({ response: activities, success: true });
-    } catch (error) {
-      console.log(error);
-      res.json({ response: error.message, success: false });
-    }
-  }, */
+  
 };
 
 module.exports = activitiesControllers;

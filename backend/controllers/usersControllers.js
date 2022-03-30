@@ -56,12 +56,10 @@ const usersControllers = {
 },
   signUpUsers: async (req, res) => {
     let { name, lastName, urlImage, country, email, password, from } = req.body.userData;
-    console.log(req.body);
 
     try {
       const usuarioExiste = await User.findOne({ email }); 
 
-      console.log(usuarioExiste)
 
 
       if (usuarioExiste) {
@@ -150,7 +148,6 @@ const usersControllers = {
    
     try {
       const usuarioExiste = await User.findOne({ email });
-      console.log(usuarioExiste);
 
       
 
@@ -165,7 +162,6 @@ const usersControllers = {
             bcryptjs.compareSync(password, pass)
           );
           
-          console.log(contraseñaCoincide.length);
           if (contraseñaCoincide.length > 0) {
 
             const userData = {
@@ -254,7 +250,6 @@ const usersControllers = {
     res.json(console.log(" " + email));
   },
   VerifyToken:(req, res) => {
-    console.log(req.user)
     if(!req.err){
     res.json({success:true,
               response:{id:req.user.id, fullName:req.user.fullName,email:req.user.email,urlImage:req.user.urlImage, from:"token"},

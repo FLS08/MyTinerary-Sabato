@@ -9,7 +9,6 @@ function FacebookSignIn(props) {
   const responseFacebook = async (res) => {
       
      
-    console.log(res)
     const logedUser = {
       email: res.email,
       password: res.id,

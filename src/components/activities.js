@@ -16,7 +16,6 @@ function Activities(props) {
     
     }, [props.itineraryId])
 
-    console.log(activities)
 
   
 

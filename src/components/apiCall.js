@@ -12,7 +12,6 @@ export const  getCities = async () => {
     }
 }
 export const  loadCities = async (dataInput) => {
-    console.log(dataInput)
     try {
         let data = await axios.post(`http://localhost:4000/api/cities`,{dataInput})
         return data
@@ -23,7 +22,6 @@ export const  loadCities = async (dataInput) => {
 }
 
 export const  deleteCities = async (id) => {
-    console.log(id)
     try {
         let data = await axios.delete(`http://localhost:4000/api/cities/${id}`)
         return data
@@ -33,7 +31,6 @@ export const  deleteCities = async (id) => {
     }
 }
 export const  modifiCities = async (id,dataInput) => {
-    console.log(id, dataInput)
     try {
         let data = await axios.put(`http://localhost:4000/api/cities/${id}`, {dataInput})
         return data

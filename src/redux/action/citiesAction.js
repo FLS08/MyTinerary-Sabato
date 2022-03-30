@@ -14,7 +14,6 @@ const citiesAction = {
         return async (dispatch,getState) => {
             try{const res = await axios.get(`http://localhost:4000/api/cities/${id}`)
             dispatch({type: 'fetchOne', payload: res.data.response})
-            //console.log(res.data.response)
             return res.data.response
         }
             catch(err){

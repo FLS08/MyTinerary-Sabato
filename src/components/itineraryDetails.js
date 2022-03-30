@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Activities from "./activities"
 import Likes from "./likes";
 import {Accordion} from 'react-bootstrap'
+import swal from 'sweetalert';
+
 
 /* IMPORTS FROM REDUX */
 import { connect } from "react-redux";
@@ -11,7 +13,6 @@ import commentsActions from "../redux/action/commentsAction"
 function ItineraryDetails(props) {
 
   const itinerarios= props.data
-  console.log(itinerarios);
 
   const [itineraries, setItineraries] = useState()
   const [inputText, setInputText] = useState()
@@ -40,18 +41,37 @@ function ItineraryDetails(props) {
       commentID: event.target.id,
       comment: modifi,
     }
-    console.log(modifi)
     await props.modifiComment(commentData)
     setReload(!reload)
 
   }
-  async function deleteComment(event) {
-    await props.deleteComment(event.target.id)
-    setReload(!reload)
+  function deleteComment(event) {
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this comment!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        swal("Your comment has been deleted!", {
+          icon: "success",
+        });
+        props.deleteComment(event.target.id).then( res =>{
+          if(res.data.success) {
+            setItineraries(res.data.response.deleteComment.coments)
+            setReload(!reload)
+          }
+        }
+        )
+      } else {
+        swal("Ok, your comment is safe!");
+      }
+    });
   }
 
     
-  console.log(props.data)
 
   return (
     <div className="itinerariesArea">
@@ -65,7 +85,6 @@ function ItineraryDetails(props) {
           className="imgUser"
           alt="imgUser"
           />
-        {/*<p>{props.data.Hashtags}</p> */}
       </div>
 
       <Likes likes={props.data.likes} id={props.data._id} reload={reload} setReload={setReload} />
@@ -96,6 +115,8 @@ function ItineraryDetails(props) {
                       <div className="card cardComments " key={comment._id}>
                         <div className="card-header cardHeader">
                           {comment.userId?.name}
+                          <img src={comment.userId.urlImage} className="profilePhoto" alt="userPhoto" />
+
                         </div>
                         <div className="card-body">
                           <p className="card-text cardText">{comment.coment}</p>
@@ -105,11 +126,13 @@ function ItineraryDetails(props) {
                       <div className="card cardComments">
                         <div className="card-header cardHeader">
                           <p>{comment.userId.name}</p> 
+                          <img src={comment.userId.urlImage} className="profilePhoto" alt="userPhoto" />
                         </div>
                         <div className="card-body ">
                         
                           <div type="text" className="card-text textComments" onInput={(event) => setModifi(event.currentTarget.textContent)} contentEditable >{comment.coment}</div>
                           <button id={comment._id} onClick={deleteComment} className="btn btn-primary btnComments">Delete</button>
+                          <button id={comment._id} onClick={modifiComment} className="btn btn-primary btnComments">Edit</button>
                         </div>
                       </div>
                     }

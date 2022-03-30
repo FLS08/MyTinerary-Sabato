@@ -11,7 +11,6 @@ const activitiesAction = {
     },
 
     fetchActivitiesByItineraryId: (itineraryId) =>{
-        console.log(itineraryId)
         return async () => {
             try{const res = await axios.get(`http://localhost:4000/api/activities/${itineraryId}`)
             return {succes:true, response: res.data.response}            

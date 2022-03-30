@@ -25,7 +25,6 @@ function SignUp(props) {
     props.signUpUser(userData);
     console.log(userData)
   };
-  console.log(props);
 
   return (
       <>

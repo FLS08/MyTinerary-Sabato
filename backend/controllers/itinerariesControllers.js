@@ -17,7 +17,6 @@ const itinerariesControllers = {
     });
   },
   loadItineraries: async (req, res) => {
-    console.log(req.body);
     const {city,city_id,country,imgUser,userName,itineraryName,price,duration,likes,hashtags,coments} = req.body;
     new Itineraries({
       city,
@@ -38,7 +37,6 @@ const itinerariesControllers = {
 
   deleteItineraries: async (req, res) => {
     const id = req.params.id;
-    console.log(req.params);
     await Itineraries.findOneAndDelete({ _id: id });
   },
   modifiItneraries: async (req, res) => {
@@ -51,12 +49,10 @@ const itinerariesControllers = {
     }res.json({success:true, response:itinerariesdb})
   },
   getOneItinerary: async (req, res) => {
-    console.log( req.params.id)
     let itineraries;
     let error = null;
     try {
       itineraries = await Itineraries.find({city_id:req.params.id}).populate("coments.userId");
-      console.log(itineraries)
     } catch (err) {
       error = err;
       console.log(error);
@@ -74,11 +70,6 @@ const itinerariesControllers = {
     const user= req.user.id.toString();
     let tinerario
 
-    console.log("Id user");
-    console.log(user)
-    console.log("Id itinerario");
-    console.log(id)
-
     try {
       tinerario = await Itineraries.findOne({_id: id });
 
@@ -93,7 +84,7 @@ const itinerariesControllers = {
         .catch(error => console.log(error))
       }
     } catch (err) {
-      error = err;
+      const error = err;
       res.json({success:false, response:error});
     }
     

@@ -70,9 +70,7 @@ export default function Carrousel() {
                     </Typography>
                 </CardContent>
                 </CardActionArea>
-                <CardActions>
-                    <button className='cardsButton'> Visit!</button>
-                </CardActions>
+                
             </Card>            
             </div>          
         </SwiperSlide>

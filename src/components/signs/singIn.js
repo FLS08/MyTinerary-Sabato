@@ -14,7 +14,6 @@ function SignIn(props) {
 			password: event.target[1].value,
 			from: "form-Signin"
 		}
-		console.log(logedUser);
 		props.signInUser(logedUser)
 	}
 
