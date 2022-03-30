@@ -17,7 +17,6 @@ const citiesControllers = {
     });
   },
   loadCities: async (req, res) => {
-    console.log(req.body);
     const { city, country, description } = req.body;
     new Cities({
       city,
@@ -30,7 +29,6 @@ const citiesControllers = {
 
   deleteCities: async (req, res) => {
     const id = req.params.id;
-    console.log(req.params);
     await Cities.findOneAndDelete({ _id: id });
   },
   modifiCities: async (req, res) => {

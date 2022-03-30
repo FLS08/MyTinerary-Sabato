@@ -40,7 +40,6 @@ const NavBar = (props) => {
   function SignOut() {
 		props.SignOutUser(props.user.email)
 	}
-  //console.log(props);
 
 
   return (
@@ -130,8 +129,8 @@ const NavBar = (props) => {
             </MenuItem>
             </div>:
             <div className='container-navbar'>
-            <MenuItem className='logOut'>
-              <Link to="/auth/signin"  onClick={SignOut}>Log Out</Link>
+            <MenuItem  className='logOut'>
+              <Link to="/auth/signin"   onClick={SignOut}>Log Out</Link>
             </MenuItem>
             </div> }
           </Menu>
