@@ -5,7 +5,7 @@ const citiesAction = {
 
     fetchCities: () => {
         return async(dispatch,getState)=>{
-            const res = await axios.get('http://localhost:4000/api/cities')
+            const res = await axios.get('https://mytinerary-sabato.herokuapp.com/api/cities')
             dispatch({type: 'fetch' ,payload:res.data.response.cities}) 
         }  
     },

@@ -25,7 +25,7 @@ const sendEmail = async (email, uniqueString) => {
       from: sender,    
       to: email,       
       subject: "MyTinerary's || Verify your account ", 
-      html: `Press <a href=http://localhost:4000/api/verify/${uniqueString}>"here"</a> to confirm your email. Thank you`,  
+      html: `Press <a href=https://mytinerary-sabato.herokuapp.com/api/verify/${uniqueString}>"here"</a> to confirm your email. Thank you`,  
   };
   await transporter.sendMail(mailOptions, function (error, response) { 
       if (error) { console.log(error) }
@@ -49,7 +49,7 @@ const usersControllers = {
     if (user) {
         user.emailVerificado = true 
         await user.save()
-        res.redirect("http://localhost:3000/") 
+        res.redirect("https://mytinerary-sabato.herokuapp.com/") 
         
     }
     else { res.json({ success: false, response: "Your email has not been verified" }) }
