@@ -8,14 +8,14 @@ const itinerariesAction = {
 
     fetchItineraries: () => {
         return async(dispatch,getState)=>{
-            const res = await axios.get('http://localhost:4000/api/itineraries')
+            const res = await axios.get('https://mytinerary-sabato.herokuapp.com/api/itineraries')
             dispatch({type: 'fetch' ,payload:res.data.response}) 
         }  
     },
 
     fetchOneItinerary: (id) =>{     //FETCH ITINERARIES BY CITY
         return async (dispatch,getState) => {
-            try{const res = await axios.get(`http://localhost:4000/api/itineraries/${id}`)
+            try{const res = await axios.get(`https://mytinerary-sabato.herokuapp.com/api/itineraries/${id}`)
             dispatch({type: 'fetchOneItinerary', payload: res.data.response})
             
         }
@@ -30,7 +30,7 @@ const itinerariesAction = {
     
     deleteOneItinerary: (id) =>{
         return async (dispatch,getState) =>{
-            const res = await axios.get('http://localhost:4000/api/itineraries')
+            const res = await axios.get('https://mytinerary-sabato.herokuapp.com/api/itineraries')
             dispatch({type: 'deleteItinerary', payload: res.data.response.itineraries})
 
         }
@@ -41,7 +41,7 @@ const itinerariesAction = {
         return async () =>{
             try {
                 const token = localStorage.getItem("token");
-                const res = await axios.put(`http://localhost:4000/api/likeDislike/${itineraryId}`,
+                const res = await axios.put(`https://mytinerary-sabato.herokuapp.com/api/likeDislike/${itineraryId}`,
                 {},
                 {
                   headers: {

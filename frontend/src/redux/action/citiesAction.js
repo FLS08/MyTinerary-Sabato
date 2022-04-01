@@ -12,7 +12,7 @@ const citiesAction = {
 
     fetchOneCity: (id) =>{
         return async (dispatch,getState) => {
-            try{const res = await axios.get(`http://localhost:4000/api/cities/${id}`)
+            try{const res = await axios.get(`https://mytinerary-sabato.herokuapp.com/api/cities/${id}`)
             dispatch({type: 'fetchOne', payload: res.data.response})
             return res.data.response
         }
@@ -27,7 +27,7 @@ const citiesAction = {
     
     deleteOneCity: (id) =>{
         return async (dispatch,getState) =>{
-            const res = await axios.get('http://localhost:4000/api/cities')
+            const res = await axios.get('https://mytinerary-sabato.herokuapp.com/api/cities')
             dispatch({type: 'deleteCity', payload: res.data.response.cities})
 
         }
