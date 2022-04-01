@@ -3,9 +3,12 @@ require('./config/database')
 const cors = require('cors')
 const express = require('express')
 const path = require('path')
-const passport = require('./config/passport')
+const passport = require('passport')
 
 const Router = require('./routes/routes')
+
+const PORT = process.env.PORT || 4000
+const HOST = process.env.HOST || '0.0.0.0'
 
 
 const app = express()
